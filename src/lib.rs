@@ -18,6 +18,7 @@ lazy_static! {
         m.insert("unstake_dual_crop", [125, 31, 2, 239, 223, 165, 240, 249]);
         m.insert("claim", [62, 198, 214, 193, 213, 159, 108, 210]);
         m.insert("claim_dual_drop", [128, 32, 146, 208, 138, 252, 110, 71]);
+        m.insert("withdraw", [183, 18, 70, 156, 148, 109, 161, 34]);
         m
     };
 }
@@ -30,12 +31,9 @@ mod test {
     fn test_sighash_calculation() {
         {
             let mut context = Context::new(&SHA256);
-            context.update(b"global:create_staker");
+            context.update(b"global:withdraw");
             let digest = context.finish();
-            println!(
-                "pub const CREATE_STAKER_SIGHASH: [u8; 8] = {:?};",
-                &digest.as_ref()[0..8]
-            );
+            println!("sighash {:?}", &digest.as_ref()[0..8]);
         }
     }
     #[test]
@@ -48,5 +46,6 @@ mod test {
         assert_eq!(*GLOBAL_SIGHASHDB.get("unstake_dual_crop").unwrap(), [125, 31, 2, 239, 223, 165, 240, 249]);
         assert_eq!(*GLOBAL_SIGHASHDB.get("claim").unwrap(), [62, 198, 214, 193, 213, 159, 108, 210]);
         assert_eq!(*GLOBAL_SIGHASHDB.get("claim_dual_drop").unwrap(), [128, 32, 146, 208, 138, 252, 110, 71]);
+        assert_eq!(*GLOBAL_SIGHASHDB.get("withdraw").unwrap(), [183, 18, 70, 156, 148, 109, 161, 34]);
     }
 }
