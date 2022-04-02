@@ -6,7 +6,7 @@ authors = ["Tulip Protocol"]
 description = "sighashdb is a collection of anchor instruction sighashes commonly seen acrossa variety of anchor based programs"
 keywords = ["solana", "anchor-lang"]
 license = "MIT/Apache-2.0"
-readme = "./README.md"
+readme = "../../README.md"
 [dependencies]
 hex = "0.4.3"
 [dev-dependencies]
