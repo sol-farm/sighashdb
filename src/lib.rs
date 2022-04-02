@@ -17,6 +17,7 @@ impl GlobalSighashDB {
             "claim" => Some([62, 198, 214, 193, 213, 159, 108, 210]),
             "claim_dual_crop" => Some([128, 32, 146, 208, 138, 252, 110, 71]),
             "withdraw" => Some([183, 18, 70, 156, 148, 109, 161, 34]),
+            "create_harvester" => Some([196, 93, 167, 138, 130, 242, 71, 148]),
             _ => None
         }
     }
@@ -30,7 +31,7 @@ mod test {
     fn test_sighash_calculation() {
         {
             let mut context = Context::new(&SHA256);
-            context.update(b"global:withdraw");
+            context.update(b"global:create_harvester");
             let digest = context.finish();
             println!("sighash {:?}", &digest.as_ref()[0..8]);
         }
@@ -46,5 +47,6 @@ mod test {
         assert_eq!(GlobalSighashDB.get("claim").unwrap(), [62, 198, 214, 193, 213, 159, 108, 210]);
         assert_eq!(GlobalSighashDB.get("claim_dual_crop").unwrap(), [128, 32, 146, 208, 138, 252, 110, 71]);
         assert_eq!(GlobalSighashDB.get("withdraw").unwrap(), [183, 18, 70, 156, 148, 109, 161, 34]);
+        assert_eq!(GlobalSighashDB.get("create_harvester").unwrap(), [196, 93, 167, 138, 130, 242, 71, 148]);
     }
 }

@@ -97,7 +97,7 @@ dependencies = [
 
 [[package]]
 name = "sighashdb"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "data-encoding",
  "ring",
