@@ -97,10 +97,9 @@ dependencies = [
 
 [[package]]
 name = "sighashdb"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "data-encoding",
- "lazy_static",
  "ring",
 ]
 
