@@ -1,0 +1,22 @@
+[package]
+name = "sighashdb"
+version = "0.1.5"
+edition = "2021"
+authors = ["Tulip Protocol"]
+description = "sighashdb is a collection of anchor instruction sighashes commonly seen acrossa variety of anchor based programs"
+keywords = ["solana", "anchor-lang"]
+license = "MIT/Apache-2.0"
+readme = "./README.md"
+[dependencies]
+hex = "0.4.3"
+[dev-dependencies]
+data-encoding = "2.3.2"
+ring = "0.16.20"
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1 
