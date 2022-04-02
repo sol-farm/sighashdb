@@ -1,3 +1,3 @@
 .PHONY: build
 build:
-    (cargo build --bin cli ; cp target/debug/cli sighashdb-cli)
+	(cargo build --bin sighashdb-cli; cp target/debug/sighashdb-cli .)
