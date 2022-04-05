@@ -3,31 +3,61 @@ use clap::{App, Arg, SubCommand};
 
 fn main() {
     let app =  App::new("sighashdb-cli")
-    .arg(
-        Arg::with_name("input")
-        .long_help("this is the hexadecimal encoded anchor instruction data")
-        .help("encoded instruction data")
-        .takes_value(true)
-        .value_name("IX_DATA")
-        .required(true)
-    );
-    let matches = app.get_matches();
-    let input = matches.value_of("input").unwrap();
-    let parsed =  GlobalSighashDB.parse_ix_data(input);
-    let name = &parsed.0;
-    let sighash = &parsed.1;
-    match name {
-        Some(name) => println!(
-            "found known instruction {}. sighash {:?}",
-            name, sighash.unwrap(),
+    .subcommands(vec![
+        SubCommand::with_name("parse")
+        .about("parse the encoded instruction data to determine what instruction is being called")
+        .arg(
+            Arg::with_name("input")
+            .long_help("this is the hexadecimal encoded anchor instruction data")
+            .help("encoded instruction data")
+            .takes_value(true)
+            .value_name("IX_DATA")
+            .required(true)
         ),
-        None => if let Some(sighash) = sighash {
-            println!(
-                "found unknown instruction. sighash {:?}",
-                sighash
-            )
-        } else {
-            println!("failed to parse input");
+        SubCommand::with_name("calculate")
+        .about("given the name, calculate the sighash")
+        .arg(
+            Arg::with_name("input")
+            .long_help("this is the name of the instruction as is written in the rust code")
+            .takes_value(true)
+            .value_name("IX_NAME")
+            .required(true)
+        )
+    ])
+;
+    let matches = app.get_matches();
+    match matches.subcommand() {
+        ("parse", Some(parse)) => {
+            let input = parse.value_of("input").unwrap();
+            let parsed =  GlobalSighashDB.parse_ix_data(input);
+            let name = &parsed.0;
+            let sighash = &parsed.1;
+            match name {
+                Some(name) => println!(
+                    "found known instruction {}. sighash {:?}",
+                    name, sighash.unwrap(),
+                ),
+                None => if let Some(sighash) = sighash {
+                    println!(
+                        "found unknown instruction. sighash {:?}",
+                        sighash
+                    )
+                } else {
+                    println!("failed to parse input");
+                }
+            }
+        },
+        ("calculate", Some(calculate)) => {
+            let msg_to_hash = format!("global:{}", calculate.value_of("input").unwrap());
+            {
+                use ring::digest::{Context, SHA256};
+                let mut context = Context::new(&SHA256);
+                context.update(msg_to_hash.as_bytes());
+                let digest = context.finish();
+                println!("sighash {:?}", &digest.as_ref()[0..8]);
+            }
         }
+        _ => panic!("invalid command, run --help for more information")
     }
+
 }
