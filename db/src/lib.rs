@@ -27,41 +27,42 @@ impl GlobalSighashDB {
             "init_pool_oo" => Some([49, 220, 157, 161, 132, 78, 15, 177]),
             "update_pool_orders" => Some([135, 179, 178, 244, 103, 135, 218, 51]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "swap_tokens_orca_stats" => Some([50, 33, 224, 173, 180, 200, 8, 129]),
+            "swap_tokens_orca_stats" => Some([136, 45, 191, 123, 212, 101, 215, 6]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "add_liquidity_stats" => Some([142, 249, 126, 143, 201, 62, 247, 95]),
+            "add_liquidity_stats" => Some([135, 255, 2, 4, 95, 3, 19, 2]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "deposit_vault" => Some([126, 224, 21, 255, 228, 53, 117, 33]),
+            "deposit_vault" => Some([79, 168, 135, 119, 200, 42, 163, 68]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "deposit_orca_vault" => Some([164, 167, 93, 112, 242, 226, 239, 2]),
+            "deposit_orca_vault" => Some([205, 75, 238, 108, 83, 210, 131, 252]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "deposit_orca_vault_without_shares" => Some([252, 44, 185, 216, 172, 168, 113, 61]),
+            "deposit_orca_vault_without_shares" => Some([1, 52, 121, 27, 157, 56, 250, 156]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "deposit_orca_vault_dd" => Some([9, 222, 240, 221, 55, 125, 98, 69]),
+            "deposit_orca_vault_dd" => Some([26, 84, 236, 102, 200, 190, 229, 121]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "withdraw_raydium_vault_close" => Some([105, 95, 7, 156, 159, 74, 155, 68]),
+            "withdraw_raydium_vault_close" => Some([153, 167, 126, 15, 14, 127, 73, 33]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "withdraw_orca_vault_close" => Some([64, 197, 169, 127, 139, 200, 224, 213]),
+            "withdraw_orca_vault_close" => Some([84, 194, 96, 63, 46, 145, 20, 150]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "withdraw_orca_vault_dd_close" => Some([204, 58, 193, 51, 153, 33, 192, 9]),
+            "withdraw_orca_vault_dd_close" => Some([102, 165, 159, 226, 3, 168, 78, 178]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "withdraw_orca_vault_without_shares" => Some([157, 249, 127, 73, 71, 78, 66, 252]),
+            "withdraw_orca_vault_without_shares" => Some([218, 23, 175, 249, 48, 64, 4, 236]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "remove_liquidity_new" => Some([103, 162, 200, 156, 168, 32, 1, 175]),
+            "remove_liquidity_new" => Some([74, 48, 98, 96, 147, 29, 187, 203]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "swap_tokens_serum" => Some([199, 81, 30, 13, 61, 153, 180, 175]),
+            "swap_tokens_serum" => Some([39, 7, 137, 95, 44, 53, 38, 187]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "swap_tokens_to_repay_raydium" => Some([74, 177, 165, 198, 37, 93, 109, 72]),
+            "swap_tokens_to_repay_raydium" => Some([87, 188, 123, 29, 222, 194, 194, 153]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "swap_tokens_to_repay_orca" => Some([122, 48, 109, 159, 227, 205, 239, 122]),
+            "swap_tokens_to_repay_orca" => Some([227, 103, 91, 198, 105, 18, 81, 247]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "repay_obligation_liquidity" => Some([145, 178, 13, 225, 76, 240, 147, 72]),
+            "repay_obligation_liquidity" => Some([171, 61, 42, 106, 90, 144, 181, 10]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "swap_tokens_raydium_stats" => Some([234, 194, 146, 81, 192, 251, 43, 170]),
+            "swap_tokens_raydium_stats" => Some([53, 248, 147, 165, 236, 174, 30, 116]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "repay_obligation_liquidity_stats" => Some([222, 121, 26, 85, 108, 159, 243, 206]),
+            "repay_obligation_liquidity_stats" => Some([148, 156, 212, 239, 32, 220, 233, 152]),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            "add_liquidity" => Some([181, 157, 89, 67, 143, 182, 52, 72]),
+            "add_liquidity" => Some([81, 228, 219, 227, 27, 46, 245, 88]),
+
             _ => None
         }
     }
@@ -87,41 +88,42 @@ impl GlobalSighashDB {
             [49, 220, 157, 161, 132, 78, 15, 177] => Some("init_pool_oo".to_string()),
             [135, 179, 178, 244, 103, 135, 218, 51] => Some("update_pool_orders".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [50, 33, 224, 173, 180, 200, 8, 129] => Some("swap_tokens_orca_stats".to_string()),
+            [136, 45, 191, 123, 212, 101, 215, 6] => Some("swap_tokens_orca_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [142, 249, 126, 143, 201, 62, 247, 95] => Some("add_liquidity_stats".to_string()),
+            [135, 255, 2, 4, 95, 3, 19, 2] => Some("add_liquidity_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [126, 224, 21, 255, 228, 53, 117, 33] => Some("deposit_vault".to_string()),
+            [79, 168, 135, 119, 200, 42, 163, 68] => Some("deposit_vault".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [164, 167, 93, 112, 242, 226, 239, 2] => Some("deposit_orca_vault".to_string()),
+            [205, 75, 238, 108, 83, 210, 131, 252] => Some("deposit_orca_vault".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [252, 44, 185, 216, 172, 168, 113, 61] => Some("deposit_orca_vault_without_shares".to_string()),
+            [1, 52, 121, 27, 157, 56, 250, 156] => Some("deposit_orca_vault_without_shares".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [9, 222, 240, 221, 55, 125, 98, 69] => Some("deposit_orca_vault_dd".to_string()),
+            [26, 84, 236, 102, 200, 190, 229, 121] => Some("deposit_orca_vault_dd".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [105, 95, 7, 156, 159, 74, 155, 68] => Some("withdraw_raydium_vault_close".to_string()),
+            [153, 167, 126, 15, 14, 127, 73, 33] => Some("withdraw_raydium_vault_close".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [64, 197, 169, 127, 139, 200, 224, 213] => Some("withdraw_orca_vault_close".to_string()),
+            [84, 194, 96, 63, 46, 145, 20, 150] => Some("withdraw_orca_vault_close".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [204, 58, 193, 51, 153, 33, 192, 9] => Some("withdraw_orca_vault_dd_close".to_string()),
+            [102, 165, 159, 226, 3, 168, 78, 178] => Some("withdraw_orca_vault_dd_close".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [157, 249, 127, 73, 71, 78, 66, 252] => Some("withdraw_orca_vault_without_shares".to_string()),
+            [218, 23, 175, 249, 48, 64, 4, 236] => Some("withdraw_orca_vault_without_shares".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [103, 162, 200, 156, 168, 32, 1, 175] => Some("remove_liquidity_new".to_string()),
+            [74, 48, 98, 96, 147, 29, 187, 203] => Some("remove_liquidity_new".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [199, 81, 30, 13, 61, 153, 180, 175] => Some("swap_tokens_serum".to_string()),
+            [39, 7, 137, 95, 44, 53, 38, 187] => Some("swap_tokens_serum".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [74, 177, 165, 198, 37, 93, 109, 72] => Some("swap_tokens_to_repay_raydium".to_string()),
+            [87, 188, 123, 29, 222, 194, 194, 153] => Some("swap_tokens_to_repay_raydium".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [122, 48, 109, 159, 227, 205, 239, 122] => Some("swap_tokens_to_repay_orca".to_string()),
+            [227, 103, 91, 198, 105, 18, 81, 247] => Some("swap_tokens_to_repay_orca".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [145, 178, 13, 225, 76, 240, 147, 72] => Some("repay_obligation_liquidity".to_string()),
+            [171, 61, 42, 106, 90, 144, 181, 10] => Some("repay_obligation_liquidity".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [234, 194, 146, 81, 192, 251, 43, 170] => Some("swap_tokens_raydium_stats".to_string()),
+            [53, 248, 147, 165, 236, 174, 30, 116] => Some("swap_tokens_raydium_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [222, 121, 26, 85, 108, 159, 243, 206] => Some("repay_obligation_liquidity_stats".to_string()),
+            [148, 156, 212, 239, 32, 220, 233, 152] => Some("repay_obligation_liquidity_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
-            [181, 157, 89, 67, 143, 182, 52, 72] => Some("add_liquidity".to_string()),
+            [81, 228, 219, 227, 27, 46, 245, 88] => Some("add_liquidity".to_string()),
+
             _ => None,
         }
     }
@@ -172,7 +174,7 @@ mod test {
     fn test_sighash_calculation() {
         {
             let mut context = Context::new(&SHA256);
-            context.update(b"global:swap_token_orca_stats");
+            context.update(b"global:swap_tokens_raydium_stats");
             let digest = context.finish();
             println!("sighash {:?}", &digest.as_ref()[0..8]);
         }
