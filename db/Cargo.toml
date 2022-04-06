@@ -8,7 +8,9 @@ keywords = ["solana", "anchor-lang"]
 license = "MIT/Apache-2.0"
 [features]
 reverse-get = []
-default = ["reverse-get"]
+tulipv1-leverage-farm = []
+atrix-farm = []
+default = ["reverse-get", "tulipv1-leverage-farm"]
 [dependencies]
 hex = "0.4.3"
 [dev-dependencies]
