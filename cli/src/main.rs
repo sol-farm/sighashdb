@@ -54,7 +54,9 @@ fn main() {
                 let mut context = Context::new(&SHA256);
                 context.update(msg_to_hash.as_bytes());
                 let digest = context.finish();
-                println!("sighash {:?}", &digest.as_ref()[0..8]);
+                let sighash = format!("{:?}", &digest.as_ref()[0..8]);
+                println!("\"{}\" => Some({}),", calculate.value_of("input").unwrap(), sighash);
+                println!("{} => Some({:?}.to_string()),\n\n", sighash, calculate.value_of("input").unwrap())
             }
         }
         _ => panic!("invalid command, run --help for more information")
