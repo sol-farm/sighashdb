@@ -8,6 +8,7 @@ fn main() {
         .about("parse the encoded instruction data to determine what instruction is being called")
         .arg(
             Arg::with_name("input")
+            .long("input")
             .long_help("this is the hexadecimal encoded anchor instruction data")
             .help("encoded instruction data")
             .takes_value(true)
@@ -18,10 +19,18 @@ fn main() {
         .about("given the name, calculate the sighash")
         .arg(
             Arg::with_name("input")
+            .long("input")
             .long_help("this is the name of the instruction as is written in the rust code")
             .takes_value(true)
             .value_name("IX_NAME")
             .required(true)
+        )
+        .arg(
+            Arg::with_name("v6")
+            .long("v6")
+            .long_help("if enabled, use anchorv6 instruction name spacing which is 2 colons :: instead of 1 :")
+            .takes_value(false)
+            .required(false)
         )
     ])
 ;
@@ -48,7 +57,12 @@ fn main() {
             }
         },
         ("calculate", Some(calculate)) => {
-            let msg_to_hash = format!("global:{}", calculate.value_of("input").unwrap());
+            let spacer = if calculate.is_present("v6") {
+                "::"
+            } else {
+                ":"
+            };
+            let msg_to_hash = format!("global{}{}", spacer, calculate.value_of("input").unwrap());
             {
                 use ring::digest::{Context, SHA256};
                 let mut context = Context::new(&SHA256);
