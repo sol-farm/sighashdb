@@ -58,6 +58,8 @@ impl GlobalSighashDB {
             "repay_obligation_liquidity" => Some([145, 178, 13, 225, 76, 240, 147, 72]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "swap_tokens_raydium_stats" => Some([234, 194, 146, 81, 192, 251, 43, 170]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "repay_obligation_liquidity_stats" => Some([222, 121, 26, 85, 108, 159, 243, 206]),
             _ => None
         }
     }
@@ -114,6 +116,9 @@ impl GlobalSighashDB {
             [145, 178, 13, 225, 76, 240, 147, 72] => Some("repay_obligation_liquidity".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [234, 194, 146, 81, 192, 251, 43, 170] => Some("swap_tokens_raydium_stats".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [222, 121, 26, 85, 108, 159, 243, 206] => Some("repay_obligation_liquidity_stats".to_string()),
+
             _ => None,
         }
     }
@@ -204,5 +209,6 @@ mod test {
         assert_eq!(GlobalSighashDB.get("swap_tokens_to_repay_orca").unwrap(), [122, 48, 109, 159, 227, 205, 239, 122]);
         assert_eq!(GlobalSighashDB.get("repay_obligation_liquidity").unwrap(), [145, 178, 13, 225, 76, 240, 147, 72]);
         assert_eq!(GlobalSighashDB.get("swap_tokens_raydium_stats").unwrap(), [234, 194, 146, 81, 192, 251, 43, 170]);
+        assert_eq!(GlobalSighashDB.get("repay_obligation_liquidity_stats").unwrap(), [222, 121, 26, 85, 108, 159, 243, 206]);
     }
 }
