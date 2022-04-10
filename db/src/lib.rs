@@ -62,7 +62,8 @@ impl GlobalSighashDB {
             "repay_obligation_liquidity_stats" => Some([148, 156, 212, 239, 32, 220, 233, 152]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "add_liquidity" => Some([81, 228, 219, 227, 27, 46, 245, 88]),
-
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "repay_obligation_liquidity_external" => Some([37, 157, 116, 160, 224, 0, 129, 178]),
             _ => None
         }
     }
@@ -123,7 +124,8 @@ impl GlobalSighashDB {
             [148, 156, 212, 239, 32, 220, 233, 152] => Some("repay_obligation_liquidity_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [81, 228, 219, 227, 27, 46, 245, 88] => Some("add_liquidity".to_string()),
-
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [37, 157, 116, 160, 224, 0, 129, 178] => Some("repay_obligation_liquidity_external".to_string()),
             _ => None,
         }
     }
