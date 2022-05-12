@@ -64,6 +64,26 @@ impl GlobalSighashDB {
             "add_liquidity" => Some([81, 228, 219, 227, 27, 46, 245, 88]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "repay_obligation_liquidity_external" => Some([151, 242, 97, 153, 158, 8, 189, 1]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "start_user_obligation_liquidation" => Some([221, 137, 254, 158, 71, 124, 4, 35]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "pull_lp_for_liquidation_double_dip" => Some([182, 155, 154, 61, 226, 108, 73, 91]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "pull_lp_for_liquidation_orca_without_shares" => Some([239, 62, 39, 36, 36, 42, 147, 155]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "pull_lp_for_liquidation_spl_token_swap" => Some([166, 98, 207, 5, 182, 104, 8, 112]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "pull_lp_for_liquidation" => Some([163, 29, 6, 223, 115, 172, 125, 232]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "remove_liquidity_for_liquidation_improved" => Some([200, 61, 187, 32, 85, 205, 41, 237]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "spl_liquidation_swap_experimental" => Some([224, 135, 7, 96, 141, 41, 181, 96]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "repay_liquidation_debt" => Some([26, 224, 58, 244, 99, 94, 139, 227]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "ray_liquidation_swap" => Some([101, 243, 117, 156, 44, 149, 16, 192]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "end_obligation_liquidation" => Some([210, 1, 24, 203, 253, 207, 100, 198]),
             _ => None
         }
     }
@@ -126,6 +146,27 @@ impl GlobalSighashDB {
             [81, 228, 219, 227, 27, 46, 245, 88] => Some("add_liquidity".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [151, 242, 97, 153, 158, 8, 189, 1] => Some("repay_obligation_liquidity_external".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [210, 1, 24, 203, 253, 207, 100, 198] => Some("end_obligation_liquidation".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [101, 243, 117, 156, 44, 149, 16, 192] => Some("ray_liquidation_swap".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [26, 224, 58, 244, 99, 94, 139, 227] => Some("repay_liquidation_debt".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [224, 135, 7, 96, 141, 41, 181, 96] => Some("spl_liquidation_swap_experimental".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [200, 61, 187, 32, 85, 205, 41, 237] => Some("remove_liquidity_for_liquidation_improved".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [163, 29, 6, 223, 115, 172, 125, 232] => Some("pull_lp_for_liquidation".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [166, 98, 207, 5, 182, 104, 8, 112] => Some("pull_lp_for_liquidation_spl_token_swap".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [239, 62, 39, 36, 36, 42, 147, 155] => Some("pull_lp_for_liquidation_orca_without_shares".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [182, 155, 154, 61, 226, 108, 73, 91] => Some("pull_lp_for_liquidation_double_dip".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [221, 137, 254, 158, 71, 124, 4, 35] => Some("start_user_obligation_liquidation".to_string()),
+
             _ => None,
         }
     }

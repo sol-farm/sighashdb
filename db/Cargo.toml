@@ -1,10 +1,10 @@
 [package]
 name = "sighashdb"
-version = "0.1.11"
+version = "0.1.12"
 edition = "2021"
 authors = ["Tulip Protocol"]
 description = "sighashdb is a collection of anchor instruction sighashes commonly seen acrossa variety of anchor based programs"
-keywords = ["solana", "anchor-lang"]
+keywords = ["solana", "anchor-lang", "sighash"]
 license = "MIT/Apache-2.0"
 [features]
 reverse-get = []
