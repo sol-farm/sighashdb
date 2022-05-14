@@ -84,6 +84,12 @@ impl GlobalSighashDB {
             "ray_liquidation_swap" => Some([101, 243, 117, 156, 44, 149, 16, 192]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "end_obligation_liquidation" => Some([210, 1, 24, 203, 253, 207, 100, 198]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "initialize" => Some([197, 45, 4, 78, 201, 65, 227, 90]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "set_product_account" => Some([143, 208, 101, 111, 242, 172, 137, 76]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "set_price" => Some([138, 189, 124, 106, 120, 125, 125, 63]),
             _ => None
         }
     }
@@ -166,6 +172,12 @@ impl GlobalSighashDB {
             [182, 155, 154, 61, 226, 108, 73, 91] => Some("pull_lp_for_liquidation_double_dip".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [221, 137, 254, 158, 71, 124, 4, 35] => Some("start_user_obligation_liquidation".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [197, 45, 4, 78, 201, 65, 227, 90] => Some("initialize".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [143, 208, 101, 111, 242, 172, 137, 76] => Some("set_product_account".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [138, 189, 124, 106, 120, 125, 125, 63] => Some("set_price".to_string()),
 
             _ => None,
         }
