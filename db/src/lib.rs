@@ -92,6 +92,8 @@ impl GlobalSighashDB {
             "set_price" => Some([138, 189, 124, 106, 120, 125, 125, 63]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "start_user_obligation_liquidation_new" => Some([84, 175, 248, 228, 211, 176, 109, 166]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "add_liq_issue_shares" => Some([223, 165, 145, 61, 1, 198, 15, 60]),
             _ => None
         }
     }
@@ -182,7 +184,8 @@ impl GlobalSighashDB {
             [138, 189, 124, 106, 120, 125, 125, 63] => Some("set_price".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [84, 175, 248, 228, 211, 176, 109, 166] => Some("start_user_obligation_liquidation_new".to_string()),
-
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [223, 165, 145, 61, 1, 198, 15, 60] => Some("add_liq_issue_shares".to_string()),
             _ => None,
         }
     }

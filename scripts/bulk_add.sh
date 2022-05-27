@@ -9,6 +9,7 @@ while IFS= read -r IX; do
 
 
     if [[ "$V6" == "yes" ]]; then
+        echo "v6 mode"
         ./sighashdb-cli calculate --input "$IX" --v6
     else
         ./sighashdb-cli calculate --input "$IX"
