@@ -94,6 +94,10 @@ impl GlobalSighashDB {
             "start_user_obligation_liquidation_new" => Some([84, 175, 248, 228, 211, 176, 109, 166]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "add_liq_issue_shares" => Some([39, 18, 162, 206, 228, 123, 13, 76]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "swap_to_repay_orca" => Some([198, 49, 192, 28, 9, 135, 3, 251]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "swap_to_repay_raydium" => Some([30, 38, 34, 46, 211, 41, 152, 197]),
             _ => None
         }
     }
@@ -186,6 +190,10 @@ impl GlobalSighashDB {
             [84, 175, 248, 228, 211, 176, 109, 166] => Some("start_user_obligation_liquidation_new".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [39, 18, 162, 206, 228, 123, 13, 76] => Some("add_liq_issue_shares".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [198, 49, 192, 28, 9, 135, 3, 251] => Some("swap_to_repay_orca".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [30, 38, 34, 46, 211, 41, 152, 197] => Some("swap_to_repay_raydium".to_string()),
             _ => None,
         }
     }
