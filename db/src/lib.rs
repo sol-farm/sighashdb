@@ -26,6 +26,7 @@ impl GlobalSighashDB {
             "create_pool_oo" => Some([182, 241, 212, 239, 26, 140, 19, 228]),
             "init_pool_oo" => Some([49, 220, 157, 161, 132, 78, 15, 177]),
             "update_pool_orders" => Some([135, 179, 178, 244, 103, 135, 218, 51]),
+            "sweep_deposit_queue" => Some([73, 69, 215, 228, 147, 128, 122, 185]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "swap_tokens_orca_stats" => Some([136, 45, 191, 123, 212, 101, 215, 6]),
             #[cfg(feature = "tulipv1-leverage-farm")]
@@ -122,6 +123,7 @@ impl GlobalSighashDB {
             [182, 241, 212, 239, 26, 140, 19, 228] => Some("create_pool_oo".to_string()),
             [49, 220, 157, 161, 132, 78, 15, 177] => Some("init_pool_oo".to_string()),
             [135, 179, 178, 244, 103, 135, 218, 51] => Some("update_pool_orders".to_string()),
+            [73, 69, 215, 228, 147, 128, 122, 185] => Some("sweep_deposit_queue".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [136, 45, 191, 123, 212, 101, 215, 6] => Some("swap_tokens_orca_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
