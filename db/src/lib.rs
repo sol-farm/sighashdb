@@ -212,6 +212,23 @@ impl GlobalSighashDB {
             None => (None, Some(sighash)),
         }
     }
+    /// looks up the corresponding instruction sighash for the given instruction name
+    /// using the anchor v6 for backwards compatability
+    pub fn get_deprecated(&self, val: &str) -> Option<[u8; 8]> {
+        match val {
+            "sweep_deposit_queue" => Some([246, 255, 134, 199, 150, 127, 51, 93]),
+            _ => None,
+        }
+    }
+    /// returns the corresponding instruction name for the given instruction sighash
+    /// using the anchor v6 and below hashing method
+    #[cfg(feature = "reverse-get")]
+    pub fn reverse_get_deprecated(&self, val: [u8; 8]) -> Option<String> {
+        match val {
+            [246, 255, 134, 199, 150, 127, 51, 93] => Some("sweep_deposit_queue".to_string()),
+            _ => None,
+        }
+    }
 }
 
 /// pares anchor instruction data for the first 8 bytes
