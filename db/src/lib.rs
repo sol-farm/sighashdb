@@ -27,6 +27,7 @@ impl GlobalSighashDB {
             "init_pool_oo" => Some([49, 220, 157, 161, 132, 78, 15, 177]),
             "update_pool_orders" => Some([135, 179, 178, 244, 103, 135, 218, 51]),
             "sweep_deposit_queue" => Some([73, 69, 215, 228, 147, 128, 122, 185]),
+            "deposit_aqua_farm" => Some([255, 36, 10, 1, 116, 246, 211, 64]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "swap_tokens_orca_stats" => Some([136, 45, 191, 123, 212, 101, 215, 6]),
             #[cfg(feature = "tulipv1-leverage-farm")]
@@ -124,6 +125,7 @@ impl GlobalSighashDB {
             [49, 220, 157, 161, 132, 78, 15, 177] => Some("init_pool_oo".to_string()),
             [135, 179, 178, 244, 103, 135, 218, 51] => Some("update_pool_orders".to_string()),
             [73, 69, 215, 228, 147, 128, 122, 185] => Some("sweep_deposit_queue".to_string()),
+            [255, 36, 10, 1, 116, 246, 211, 64] => Some("deposit_aqua_farm".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [136, 45, 191, 123, 212, 101, 215, 6] => Some("swap_tokens_orca_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
@@ -217,6 +219,7 @@ impl GlobalSighashDB {
     pub fn get_deprecated(&self, val: &str) -> Option<[u8; 8]> {
         match val {
             "sweep_deposit_queue" => Some([246, 255, 134, 199, 150, 127, 51, 93]),
+            "deposit_farm" => Some([255, 0, 109, 161, 120, 219, 45, 224]),
             _ => None,
         }
     }
@@ -226,6 +229,7 @@ impl GlobalSighashDB {
     pub fn reverse_get_deprecated(&self, val: [u8; 8]) -> Option<String> {
         match val {
             [246, 255, 134, 199, 150, 127, 51, 93] => Some("sweep_deposit_queue".to_string()),
+            [255, 0, 109, 161, 120, 219, 45, 224] => Some("deposit_farm".to_string()),
             _ => None,
         }
     }
