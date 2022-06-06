@@ -222,6 +222,14 @@ impl GlobalSighashDB {
         match val {
             "sweep_deposit_queue" => Some([246, 255, 134, 199, 150, 127, 51, 93]),
             "deposit_farm" => Some([255, 0, 109, 161, 120, 219, 45, 224]),
+            "add_liquidity_stats" => Some([135, 255, 2, 4, 95, 3, 19, 2]),
+            "deposit_orca_vault" => Some([205, 75, 238, 108, 83, 210, 131, 252]),
+            "swap_tokens_orca_stats" => Some([136, 45, 191, 123, 212, 101, 215, 6]),
+            "swap_tokens_raydium_stats" => Some([53, 248, 147, 165, 236, 174, 30, 116]),
+            "deposit_vault" => Some([79, 168, 135, 119, 200, 42, 163, 68]),
+            "deposit_orca_vault_without_shares" => Some([1, 52, 121, 27, 157, 56, 250, 156]),
+            "deposit_orca_vault_dd" => Some([26, 84, 236, 102, 200, 190, 229, 121]),
+            
             _ => None,
         }
     }
@@ -232,6 +240,13 @@ impl GlobalSighashDB {
         match val {
             [246, 255, 134, 199, 150, 127, 51, 93] => Some("sweep_deposit_queue".to_string()),
             [255, 0, 109, 161, 120, 219, 45, 224] => Some("deposit_farm".to_string()),
+            [135, 255, 2, 4, 95, 3, 19, 2] => Some("add_liquidity_stats".to_string()),
+            [205, 75, 238, 108, 83, 210, 131, 252] => Some("deposit_orca_vault".to_string()),
+            [136, 45, 191, 123, 212, 101, 215, 6] => Some("swap_tokens_orca_stats".to_string()),
+            [53, 248, 147, 165, 236, 174, 30, 116] => Some("swap_tokens_raydium_stats".to_string()),
+            [79, 168, 135, 119, 200, 42, 163, 68] => Some("deposit_vault".to_string()),
+            [1, 52, 121, 27, 157, 56, 250, 156] => Some("deposit_orca_vault_without_shares".to_string()),
+            [26, 84, 236, 102, 200, 190, 229, 121] => Some("deposit_orca_vault_dd".to_string()),
             _ => None,
         }
     }
