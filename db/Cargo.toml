@@ -1,6 +1,6 @@
 [package]
 name = "sighashdb"
-version = "0.1.24"
+version = "0.1.25"
 edition = "2021"
 authors = ["Tulip Protocol"]
 description = "sighashdb is a collection of anchor instruction sighashes commonly seen acrossa variety of anchor based programs"
