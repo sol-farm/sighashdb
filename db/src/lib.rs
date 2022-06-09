@@ -103,6 +103,8 @@ impl GlobalSighashDB {
             "swap_to_repay_raydium" => Some([30, 38, 34, 46, 211, 41, 152, 197]),
             #[cfg(feature = "tulipv2")]
             "issue_shares" => Some([110, 72, 179, 47, 131, 109, 115, 103]),
+            #[cfg(feature = "tulipv2")]
+            "register_deposit_tracking_account" => Some([55, 114, 97, 238, 33, 173, 193, 225]),
             _ => None
         }
     }
@@ -204,6 +206,9 @@ impl GlobalSighashDB {
             [30, 38, 34, 46, 211, 41, 152, 197] => Some("swap_to_repay_raydium".to_string()),
             #[cfg(feature = "tulipv2")]
             [110, 72, 179, 47, 131, 109, 115, 103] => Some("issue_shares".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [55, 114, 97, 238, 33, 173, 193, 225] => Some("register_deposit_tracking_account".to_string()),
+
             _ => None,
         }
     }
