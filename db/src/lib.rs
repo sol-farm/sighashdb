@@ -107,6 +107,8 @@ impl GlobalSighashDB {
             "register_deposit_tracking_account" => Some([55, 114, 97, 238, 33, 173, 193, 225]),
             #[cfg(feature = "tulipv2")]
             "withdraw_deposit_tracking" => Some([3, 232, 22, 105, 242, 88, 178, 172]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_multi_deposit_optimizer_vault" => Some([94, 147, 111, 141, 204, 247, 197, 86]),
             _ => None
         }
     }
@@ -212,6 +214,8 @@ impl GlobalSighashDB {
             [55, 114, 97, 238, 33, 173, 193, 225] => Some("register_deposit_tracking_account".to_string()),
             #[cfg(feature = "tulipv2")]
             [3, 232, 22, 105, 242, 88, 178, 172] => Some("withdraw_deposit_tracking".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [94, 147, 111, 141, 204, 247, 197, 86] => Some("withdraw_multi_deposit_optimizer_vault".to_string()),
             _ => None,
         }
     }
