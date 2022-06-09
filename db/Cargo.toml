@@ -1,6 +1,6 @@
 [package]
 name = "sighashdb"
-version = "0.1.22"
+version = "0.1.23"
 edition = "2021"
 authors = ["Tulip Protocol"]
 description = "sighashdb is a collection of anchor instruction sighashes commonly seen acrossa variety of anchor based programs"
@@ -9,8 +9,9 @@ license = "MIT/Apache-2.0"
 [features]
 reverse-get = []
 tulipv1-leverage-farm = []
+tulipv2 = []
 atrix-farm = []
-default = ["reverse-get", "tulipv1-leverage-farm"]
+default = ["reverse-get", "tulipv1-leverage-farm", "tulipv2"]
 [dependencies]
 hex = "0.4.3"
 [dev-dependencies]
