@@ -1,5 +1,5 @@
-use sighashdb::GlobalSighashDB;
 use clap::{App, Arg, SubCommand};
+use sighashdb::GlobalSighashDB;
 
 fn main() {
     let app =  App::new("sighashdb-cli")
@@ -38,24 +38,24 @@ fn main() {
     match matches.subcommand() {
         ("parse", Some(parse)) => {
             let input = parse.value_of("input").unwrap();
-            let parsed =  GlobalSighashDB.parse_ix_data(input);
+            let parsed = GlobalSighashDB.parse_ix_data(input);
             let name = &parsed.0;
             let sighash = &parsed.1;
             match name {
                 Some(name) => println!(
                     "found known instruction {}. sighash {:?}",
-                    name, sighash.unwrap(),
+                    name,
+                    sighash.unwrap(),
                 ),
-                None => if let Some(sighash) = sighash {
-                    println!(
-                        "found unknown instruction. sighash {:?}",
-                        sighash
-                    )
-                } else {
-                    println!("failed to parse input");
+                None => {
+                    if let Some(sighash) = sighash {
+                        println!("found unknown instruction. sighash {:?}", sighash)
+                    } else {
+                        println!("failed to parse input");
+                    }
                 }
             }
-        },
+        }
         ("calculate", Some(calculate)) => {
             let spacer = if calculate.is_present("v6") {
                 "::"
@@ -69,13 +69,20 @@ fn main() {
                 context.update(msg_to_hash.as_bytes());
                 let digest = context.finish();
                 let sighash = format!("{:?}", &digest.as_ref()[0..8]);
-                println!("\"{}\" => Some({}),", calculate.value_of("input").unwrap(), sighash);
-                println!("{} => Some({:?}.to_string()),\n\n", sighash, calculate.value_of("input").unwrap())
+                println!(
+                    "\"{}\" => Some({}),",
+                    calculate.value_of("input").unwrap(),
+                    sighash
+                );
+                println!(
+                    "{} => Some({:?}.to_string()),\n\n",
+                    sighash,
+                    calculate.value_of("input").unwrap()
+                )
             }
         }
-        _ => panic!("invalid command, run --help for more information")
+        _ => panic!("invalid command, run --help for more information"),
     }
-
 }
 
 #[cfg(test)]
@@ -85,11 +92,7 @@ mod test {
     fn test_extract_sighash_from_ix_data() {
         let got_data = "8e1eb763fd2f23a6";
         let parsed = GlobalSighashDB.parse_ix_data(got_data);
-        let (
-            name,
-            _sighash
-        ) = (parsed.0.unwrap(), parsed.1.unwrap());
+        let (name, _sighash) = (parsed.0.unwrap(), parsed.1.unwrap());
         assert_eq!(name, "ix1");
-    }   
-
+    }
 }
