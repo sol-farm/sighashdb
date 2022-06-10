@@ -219,9 +219,10 @@ impl GlobalSighashDB {
             _ => None,
         }
     }
+
+    #[cfg(feature = "hex")]
     /// parses instruction data to see if it's known by the sighashdb
     /// and if it is, returns the name of the instruction, and the sighash
-    #[cfg(feature = "reverse-get")]
     pub fn parse_ix_data(&self, data: &str) -> (Option<String>, Option<[u8; 8]>) {
         let sighash = match extract_sighash_from_ix_data(data) {
             Some(sighash) => sighash,
@@ -268,6 +269,7 @@ impl GlobalSighashDB {
     }
 }
 
+#[cfg(feature = "hex")]
 /// pares anchor instruction data for the first 8 bytes
 /// which is the instruction sighash
 pub fn extract_sighash_from_ix_data(
@@ -286,16 +288,7 @@ pub fn extract_sighash_from_ix_data(
 mod test {
     use super::*;
     use ring::digest::{Context, SHA256};
-    #[test]
-    fn test_extract_sighash_from_ix_data() {
-        let got_data = "8e1eb763fd2f23a6";
-        let parsed = GlobalSighashDB.parse_ix_data(got_data);
-        let (
-            name,
-            _sighash
-        ) = (parsed.0.unwrap(), parsed.1.unwrap());
-        assert_eq!(name, "ix1");
-    }   
+
     #[test]
     fn test_sighash_calculation() {
         {

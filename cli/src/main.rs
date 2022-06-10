@@ -77,3 +77,19 @@ fn main() {
     }
 
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    #[test]
+    fn test_extract_sighash_from_ix_data() {
+        let got_data = "8e1eb763fd2f23a6";
+        let parsed = GlobalSighashDB.parse_ix_data(got_data);
+        let (
+            name,
+            _sighash
+        ) = (parsed.0.unwrap(), parsed.1.unwrap());
+        assert_eq!(name, "ix1");
+    }   
+
+}
