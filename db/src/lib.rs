@@ -7,6 +7,7 @@ pub struct GlobalSighashDB;
 
 impl GlobalSighashDB {
     /// looks up the corresponding instruction sighash for the given instruction name
+    #[inline(always)]
     pub fn get(&self, val: &str) -> Option<[u8; 8]> {
         match val {
             "deposit" => Some([242, 35, 198, 137, 82, 225, 242, 182]),
@@ -114,6 +115,7 @@ impl GlobalSighashDB {
     }
     /// returns the corresponding instruction name from the given instruction sighash
     #[cfg(feature = "reverse-get")]
+    #[inline(always)]
     pub fn reverse_get(&self, val: [u8; 8]) -> Option<String> {
         match val {
             [242, 35, 198, 137, 82, 225, 242, 182] => Some("deposit".to_string()),
@@ -221,6 +223,7 @@ impl GlobalSighashDB {
     }
 
     #[cfg(feature = "hex")]
+    #[inline(always)]
     /// parses instruction data to see if it's known by the sighashdb
     /// and if it is, returns the name of the instruction, and the sighash
     pub fn parse_ix_data(&self, data: &str) -> (Option<String>, Option<[u8; 8]>) {
@@ -235,6 +238,7 @@ impl GlobalSighashDB {
     }
     /// looks up the corresponding instruction sighash for the given instruction name
     /// using the anchor v6 for backwards compatability
+    #[inline(always)]
     pub fn get_deprecated(&self, val: &str) -> Option<[u8; 8]> {
         match val {
             "sweep_deposit_queue" => Some([246, 255, 134, 199, 150, 127, 51, 93]),
@@ -253,6 +257,7 @@ impl GlobalSighashDB {
     /// returns the corresponding instruction name for the given instruction sighash
     /// using the anchor v6 and below hashing method
     #[cfg(feature = "reverse-get")]
+    #[inline(always)]
     pub fn reverse_get_deprecated(&self, val: [u8; 8]) -> Option<String> {
         match val {
             [246, 255, 134, 199, 150, 127, 51, 93] => Some("sweep_deposit_queue".to_string()),
