@@ -34,7 +34,10 @@ match GLOBAL_SIGHASHDB.get("foo") {
             staker_account: Pubkey,
             staker_account_bump: u8,
         ) -> Instruction {
-            let mut data = GlobalSighashDB.get("create_staker").unwrap().to_vec();
+            let ix_sighash = GlobalSighashDB.get("create_staker").unwrap();
+            let mut ix_data = Vec::with_capacity(9);
+            ix_data.extend_from_slice(&ix_sighash[..]);
+            ix_data.extend_from_slice(&AnchorSerialize::try_to_vec(&staker_account_bump).unwrap()[..]);
             data.push(staker_account_bump);
             Instruction {
                 program_id: addresses::FARM_PROGRAM_ID,
