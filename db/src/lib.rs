@@ -117,8 +117,6 @@ impl GlobalSighashDB {
             "withdraw_multi_deposit_optimizer_vault" => {
                 Some([94, 147, 111, 141, 204, 247, 197, 86])
             }
-            #[cfg(feature = "tulipv1-leverage-farm")]
-            "orca_add_liquidity_queue" => Some([60, 51, 111, 125, 197, 208, 22, 248]),
             _ => None,
         }
     }
@@ -259,8 +257,6 @@ impl GlobalSighashDB {
             [94, 147, 111, 141, 204, 247, 197, 86] => {
                 Some("withdraw_multi_deposit_optimizer_vault".to_string())
             }
-            #[cfg(feature = "tulipv1-leverage-farm")]
-            [60, 51, 111, 125, 197, 208, 22, 248] => Some("orca_add_liquidity_queue".to_string()),
             _ => None,
         }
     }
@@ -293,7 +289,7 @@ impl GlobalSighashDB {
             "deposit_vault" => Some([79, 168, 135, 119, 200, 42, 163, 68]),
             "deposit_orca_vault_without_shares" => Some([1, 52, 121, 27, 157, 56, 250, 156]),
             "deposit_orca_vault_dd" => Some([26, 84, 236, 102, 200, 190, 229, 121]),
-
+            "orca_add_liquidity_queue" => Some([60, 51, 111, 125, 197, 208, 22, 248]),
             _ => None,
         }
     }
@@ -314,6 +310,7 @@ impl GlobalSighashDB {
                 Some("deposit_orca_vault_without_shares".to_string())
             }
             [26, 84, 236, 102, 200, 190, 229, 121] => Some("deposit_orca_vault_dd".to_string()),
+            [60, 51, 111, 125, 197, 208, 22, 248] => Some("orca_add_liquidity_queue".to_string()),
             _ => None,
         }
     }
