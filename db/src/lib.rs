@@ -117,6 +117,8 @@ impl GlobalSighashDB {
             "withdraw_multi_deposit_optimizer_vault" => {
                 Some([94, 147, 111, 141, 204, 247, 197, 86])
             }
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "orca_add_liquidity_queue" => Some([60, 51, 111, 125, 197, 208, 22, 248]),
             _ => None,
         }
     }
@@ -257,6 +259,8 @@ impl GlobalSighashDB {
             [94, 147, 111, 141, 204, 247, 197, 86] => {
                 Some("withdraw_multi_deposit_optimizer_vault".to_string())
             }
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [60, 51, 111, 125, 197, 208, 22, 248] => Some("orca_add_liquidity_queue".to_string()),
             _ => None,
         }
     }
