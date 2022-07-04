@@ -290,6 +290,16 @@ impl GlobalSighashDB {
             "deposit_orca_vault_without_shares" => Some([1, 52, 121, 27, 157, 56, 250, 156]),
             "deposit_orca_vault_dd" => Some([26, 84, 236, 102, 200, 190, 229, 121]),
             "orca_add_liquidity_queue" => Some([60, 51, 111, 125, 197, 208, 22, 248]),
+            "withdraw_raydium_vault_close" => Some([153, 167, 126, 15, 14, 127, 73, 33]),
+            "withdraw_orca_vault_without_shares" => Some([218, 23, 175, 249, 48, 64, 4, 236]),
+            "withdraw_orca_vault_close" => Some([84, 194, 96, 63, 46, 145, 20, 150]),
+            "withdraw_orca_vault" => Some([109, 97, 192, 91, 41, 89, 143, 196]),
+            "withdraw_orca_vault_dd_close" => Some([102, 165, 159, 226, 3, 168, 78, 178]),
+            "top_up_position_stats" => Some([205, 41, 21, 76, 102, 52, 30, 20]),
+            "deposit_borrow_dual" => Some([170, 199, 78, 138, 119, 118, 96, 246]),
+            "create_user_farm_obligation" => Some([193, 96, 101, 180, 136, 210, 148, 120]),
+            "close_position_info_account" => Some([44, 205, 56, 239, 135, 45, 94, 116]),
+            "create_user_farm" => Some([229, 49, 30, 92, 43, 69, 49, 220]),
             _ => None,
         }
     }
@@ -311,6 +321,16 @@ impl GlobalSighashDB {
             }
             [26, 84, 236, 102, 200, 190, 229, 121] => Some("deposit_orca_vault_dd".to_string()),
             [60, 51, 111, 125, 197, 208, 22, 248] => Some("orca_add_liquidity_queue".to_string()),
+            [153, 167, 126, 15, 14, 127, 73, 33] => Some("withdraw_raydium_vault_close".to_string()),
+            [218, 23, 175, 249, 48, 64, 4, 236] => Some("withdraw_orca_vault_without_shares".to_string()),
+            [84, 194, 96, 63, 46, 145, 20, 150] => Some("withdraw_orca_vault_close".to_string()),
+            [109, 97, 192, 91, 41, 89, 143, 196] => Some("withdraw_orca_vault".to_string()),
+            [102, 165, 159, 226, 3, 168, 78, 178] => Some("withdraw_orca_vault_dd_close".to_string()),
+            [205, 41, 21, 76, 102, 52, 30, 20] => Some("top_up_position_stats".to_string()),
+            [170, 199, 78, 138, 119, 118, 96, 246] => Some("deposit_borrow_dual".to_string()),
+            [193, 96, 101, 180, 136, 210, 148, 120] => Some("create_user_farm_obligation".to_string()),
+            [44, 205, 56, 239, 135, 45, 94, 116] => Some("close_position_info_account".to_string()),
+            [229, 49, 30, 92, 43, 69, 49, 220] => Some("create_user_farm".to_string()),
             _ => None,
         }
     }
