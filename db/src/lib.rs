@@ -117,6 +117,22 @@ impl GlobalSighashDB {
             "withdraw_multi_deposit_optimizer_vault" => {
                 Some([94, 147, 111, 141, 204, 247, 197, 86])
             }
+            #[cfg(feature = "tulipv2")]
+            "withdraw_raydium_vault" => Some([254, 94, 225, 136, 118, 24, 139, 119]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_atrix_vault" => Some([29, 99, 95, 24, 128, 184, 10, 103]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_orca_vault_remove_liq" => Some([227, 140, 117, 125, 113, 221, 30, 204]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_orca_vault_dd_stage_two" => Some([210, 104, 7, 30, 239, 1, 235, 236]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_orca_vault_dd_stage_one" => Some([166, 181, 35, 158, 120, 144, 104, 145]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_orca_vault" => Some([177, 28, 79, 244, 220, 22, 29, 118]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_quarry_vault" => Some([179, 206, 29, 224, 184, 84, 46, 227]),
+            #[cfg(feature = "tulipv2")]
+            "withdraw_sunny_vault" => Some([249, 106, 178, 46, 61, 8, 85, 170]),
             _ => None,
         }
     }
@@ -257,6 +273,28 @@ impl GlobalSighashDB {
             [94, 147, 111, 141, 204, 247, 197, 86] => {
                 Some("withdraw_multi_deposit_optimizer_vault".to_string())
             }
+            #[cfg(feature = "tulipv2")]
+            [249, 106, 178, 46, 61, 8, 85, 170] => Some("withdraw_sunny_vault".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [254, 94, 225, 136, 118, 24, 139, 119] => Some("withdraw_raydium_vault".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [29, 99, 95, 24, 128, 184, 10, 103] => Some("withdraw_atrix_vault".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [227, 140, 117, 125, 113, 221, 30, 204] => {
+                Some("withdraw_orca_vault_remove_liq".to_string())
+            }
+            #[cfg(feature = "tulipv2")]
+            [166, 181, 35, 158, 120, 144, 104, 145] => {
+                Some("withdraw_orca_vault_dd_stage_one".to_string())
+            }
+            #[cfg(feature = "tulipv2")]
+            [210, 104, 7, 30, 239, 1, 235, 236] => {
+                Some("withdraw_orca_vault_dd_stage_two".to_string())
+            }
+            #[cfg(feature = "tulipv2")]
+            [177, 28, 79, 244, 220, 22, 29, 118] => Some("withdraw_orca_vault".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [179, 206, 29, 224, 184, 84, 46, 227] => Some("withdraw_quarry_vault".to_string()),
             _ => None,
         }
     }
@@ -321,14 +359,22 @@ impl GlobalSighashDB {
             }
             [26, 84, 236, 102, 200, 190, 229, 121] => Some("deposit_orca_vault_dd".to_string()),
             [60, 51, 111, 125, 197, 208, 22, 248] => Some("orca_add_liquidity_queue".to_string()),
-            [153, 167, 126, 15, 14, 127, 73, 33] => Some("withdraw_raydium_vault_close".to_string()),
-            [218, 23, 175, 249, 48, 64, 4, 236] => Some("withdraw_orca_vault_without_shares".to_string()),
+            [153, 167, 126, 15, 14, 127, 73, 33] => {
+                Some("withdraw_raydium_vault_close".to_string())
+            }
+            [218, 23, 175, 249, 48, 64, 4, 236] => {
+                Some("withdraw_orca_vault_without_shares".to_string())
+            }
             [84, 194, 96, 63, 46, 145, 20, 150] => Some("withdraw_orca_vault_close".to_string()),
             [109, 97, 192, 91, 41, 89, 143, 196] => Some("withdraw_orca_vault".to_string()),
-            [102, 165, 159, 226, 3, 168, 78, 178] => Some("withdraw_orca_vault_dd_close".to_string()),
+            [102, 165, 159, 226, 3, 168, 78, 178] => {
+                Some("withdraw_orca_vault_dd_close".to_string())
+            }
             [205, 41, 21, 76, 102, 52, 30, 20] => Some("top_up_position_stats".to_string()),
             [170, 199, 78, 138, 119, 118, 96, 246] => Some("deposit_borrow_dual".to_string()),
-            [193, 96, 101, 180, 136, 210, 148, 120] => Some("create_user_farm_obligation".to_string()),
+            [193, 96, 101, 180, 136, 210, 148, 120] => {
+                Some("create_user_farm_obligation".to_string())
+            }
             [44, 205, 56, 239, 135, 45, 94, 116] => Some("close_position_info_account".to_string()),
             [229, 49, 30, 92, 43, 69, 49, 220] => Some("create_user_farm".to_string()),
             _ => None,
