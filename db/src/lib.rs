@@ -342,6 +342,8 @@ impl GlobalSighashDB {
             "create_user_farm_obligation" => Some([193, 96, 101, 180, 136, 210, 148, 120]),
             "close_position_info_account" => Some([44, 205, 56, 239, 135, 45, 94, 116]),
             "create_user_farm" => Some([229, 49, 30, 92, 43, 69, 49, 220]),
+            "set_price_extra" => Some([209, 65, 58, 32, 52, 135, 176, 148]),
+
             _ => None,
         }
     }
@@ -381,6 +383,8 @@ impl GlobalSighashDB {
             }
             [44, 205, 56, 239, 135, 45, 94, 116] => Some("close_position_info_account".to_string()),
             [229, 49, 30, 92, 43, 69, 49, 220] => Some("create_user_farm".to_string()),
+            [209, 65, 58, 32, 52, 135, 176, 148] => Some("set_price_extra".to_string()),
+
             _ => None,
         }
     }
