@@ -319,6 +319,7 @@ impl GlobalSighashDB {
     }
     /// looks up the corresponding instruction sighash for the given instruction name
     /// using the anchor v6 for backwards compatability
+    #[cfg(feature = "reverse-get")]
     #[inline(always)]
     pub fn get_deprecated(&self, val: &str) -> Option<[u8; 8]> {
         match val {
@@ -343,7 +344,7 @@ impl GlobalSighashDB {
             "close_position_info_account" => Some([44, 205, 56, 239, 135, 45, 94, 116]),
             "create_user_farm" => Some([229, 49, 30, 92, 43, 69, 49, 220]),
             "set_price_extra" => Some([209, 65, 58, 32, 52, 135, 176, 148]),
-
+            "withdraw_vault" => Some([89, 194, 163, 143, 0, 167, 190, 12]),
             _ => None,
         }
     }
@@ -384,7 +385,7 @@ impl GlobalSighashDB {
             [44, 205, 56, 239, 135, 45, 94, 116] => Some("close_position_info_account".to_string()),
             [229, 49, 30, 92, 43, 69, 49, 220] => Some("create_user_farm".to_string()),
             [209, 65, 58, 32, 52, 135, 176, 148] => Some("set_price_extra".to_string()),
-
+            [89, 194, 163, 143, 0, 167, 190, 12] => Some("withdraw_vault".to_string()),
             _ => None,
         }
     }
