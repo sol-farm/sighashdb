@@ -135,6 +135,8 @@ impl GlobalSighashDB {
             "withdraw_sunny_vault" => Some([249, 106, 178, 46, 61, 8, 85, 170]),
             #[cfg(feature = "tulipv2")]
             "orca_add_liq_issue_shares" => Some([218, 21, 28, 71, 87, 52, 191, 88]),
+            #[cfg(feature = "tulipv2")]
+            "permissioned_issue_shares" => Some([41, 244, 71, 189, 30, 118, 159, 171]),
             _ => None,
         }
     }
@@ -299,6 +301,8 @@ impl GlobalSighashDB {
             [179, 206, 29, 224, 184, 84, 46, 227] => Some("withdraw_quarry_vault".to_string()),
             #[cfg(feature = "tulipv2")]
             [218, 21, 28, 71, 87, 52, 191, 88] => Some("orca_add_liq_issue_shares".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [41, 244, 71, 189, 30, 118, 159, 171] => Some("permissioned_issue_shares".to_string()),
             _ => None,
         }
     }
