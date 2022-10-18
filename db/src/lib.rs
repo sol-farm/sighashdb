@@ -5,10 +5,16 @@
 pub struct GlobalSighashDB;
 
 impl GlobalSighashDB {
-    /// looks up the corresponding instruction sighash for the given instruction name
-    #[inline(always)]
     pub fn get(&self, val: &str) -> Option<[u8; 8]> {
         match val {
+            "collect_remaining_rewards" => Some([18, 237, 166, 197, 34, 16, 213, 144]),
+            "update_reward_infos" => Some([163, 172, 224, 52, 11, 154, 106, 223]),
+            "collect_protocol_fee" => Some([136, 136, 252, 221, 194, 66, 126, 89]),
+            "collect_fund_fee" => Some([167, 138, 78, 149, 223, 194, 6, 126]),
+            "decrease_liquidity" => Some([160, 38, 208, 111, 104, 91, 44, 1]),
+            "increase_liquidity" => Some([46, 156, 243, 118, 13, 205, 251, 178]),
+            "close_position" => Some([123, 134, 81, 0, 49, 68, 98, 98]),
+            "open_position" => Some([135, 128, 47, 77, 15, 152, 240, 49]),
             "deposit" => Some([242, 35, 198, 137, 82, 225, 242, 182]),
             "create_staker" => Some([14, 28, 165, 74, 243, 144, 108, 177]),
             "stake" => Some([206, 176, 202, 18, 200, 209, 179, 108]),
@@ -142,9 +148,16 @@ impl GlobalSighashDB {
     }
     /// returns the corresponding instruction name from the given instruction sighash
     #[cfg(feature = "reverse-get")]
-    #[inline(always)]
     pub fn reverse_get(&self, val: [u8; 8]) -> Option<String> {
         match val {
+            [18, 237, 166, 197, 34, 16, 213, 144] => Some("collect_remaining_rewards".to_string()),
+            [163, 172, 224, 52, 11, 154, 106, 223] => Some("update_reward_infos".to_string()),
+            [136, 136, 252, 221, 194, 66, 126, 89] => Some("collect_protocol_fee".to_string()),
+            [167, 138, 78, 149, 223, 194, 6, 126] => Some("collect_fund_fee".to_string()),
+            [160, 38, 208, 111, 104, 91, 44, 1] => Some("decrease_liquidity".to_string()),
+            [46, 156, 243, 118, 13, 205, 251, 178] => Some("increase_liquidity".to_string()),
+            [123, 134, 81, 0, 49, 68, 98, 98] => Some("close_position".to_string()),
+            [135, 128, 47, 77, 15, 152, 240, 49] => Some("open_position".to_string()),
             [242, 35, 198, 137, 82, 225, 242, 182] => Some("deposit".to_string()),
             [14, 28, 165, 74, 243, 144, 108, 177] => Some("create_staker".to_string()),
             [206, 176, 202, 18, 200, 209, 179, 108] => Some("stake".to_string()),
@@ -308,7 +321,6 @@ impl GlobalSighashDB {
     }
 
     #[cfg(feature = "hex")]
-    #[inline(always)]
     /// parses instruction data to see if it's known by the sighashdb
     /// and if it is, returns the name of the instruction, and the sighash
     pub fn parse_ix_data(&self, data: &str) -> (Option<String>, Option<[u8; 8]>) {
@@ -324,7 +336,6 @@ impl GlobalSighashDB {
     /// looks up the corresponding instruction sighash for the given instruction name
     /// using the anchor v6 for backwards compatability
     #[cfg(feature = "reverse-get")]
-    #[inline(always)]
     pub fn get_deprecated(&self, val: &str) -> Option<[u8; 8]> {
         match val {
             "sweep_deposit_queue" => Some([246, 255, 134, 199, 150, 127, 51, 93]),
@@ -355,7 +366,6 @@ impl GlobalSighashDB {
     /// returns the corresponding instruction name for the given instruction sighash
     /// using the anchor v6 and below hashing method
     #[cfg(feature = "reverse-get")]
-    #[inline(always)]
     pub fn reverse_get_deprecated(&self, val: [u8; 8]) -> Option<String> {
         match val {
             [246, 255, 134, 199, 150, 127, 51, 93] => Some("sweep_deposit_queue".to_string()),
