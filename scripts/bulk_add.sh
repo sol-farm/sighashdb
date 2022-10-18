@@ -12,7 +12,10 @@ while IFS= read -r IX; do
         echo "v6 mode"
         ./sighashdb-cli calculate --input "$IX" --v6
     else
-        ./sighashdb-cli calculate --input "$IX"
+        OUTPUT=$(./sighashdb-cli calculate --input "$IX")
+        NAME=$(echo "$OUTPUT" | sed 2d | awk '{print $1}' | tr '[:lower:]' '[:upper:]' | tr -d '"')
+        IX_DATA=$(echo "$OUTPUT" | sed 1d | awk -F "=>" '{print $1}')
+        echo "pub const $NAME: [u8; 8] = $IX_DATA;"
     fi
 
     
