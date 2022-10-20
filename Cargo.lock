@@ -153,7 +153,7 @@ dependencies = [
 
 [[package]]
 name = "sighashdb"
-version = "0.1.38"
+version = "0.1.39"
 dependencies = [
  "data-encoding",
  "hex",

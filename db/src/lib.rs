@@ -143,6 +143,10 @@ impl GlobalSighashDB {
             "orca_add_liq_issue_shares" => Some([218, 21, 28, 71, 87, 52, 191, 88]),
             #[cfg(feature = "tulipv2")]
             "permissioned_issue_shares" => Some([41, 244, 71, 189, 30, 118, 159, 171]),
+            #[cfg(feature = "tulipv2")]
+            "rebase_multi_deposit_optimizer_vault" => Some([59, 209, 5, 234, 109, 4, 43, 143]),
+            #[cfg(feature = "tulipv2")]
+            "rebase_lending_optimizer_vault" => Some([163, 100, 239, 127, 131, 120, 124, 51]),
             _ => None,
         }
     }
@@ -316,6 +320,10 @@ impl GlobalSighashDB {
             [218, 21, 28, 71, 87, 52, 191, 88] => Some("orca_add_liq_issue_shares".to_string()),
             #[cfg(feature = "tulipv2")]
             [41, 244, 71, 189, 30, 118, 159, 171] => Some("permissioned_issue_shares".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [163, 100, 239, 127, 131, 120, 124, 51] => Some("rebase_lending_optimizer_vault".to_string()),
+            #[cfg(feature = "tulipv2")]
+            [59, 209, 5, 234, 109, 4, 43, 143] => Some("rebase_multi_deposit_optimizer_vault".to_string()),
             _ => None,
         }
     }
