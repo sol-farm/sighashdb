@@ -113,6 +113,8 @@ impl GlobalSighashDB {
             "swap_to_repay_orca" => Some([198, 49, 192, 28, 9, 135, 3, 251]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "swap_to_repay_raydium" => Some([30, 38, 34, 46, 211, 41, 152, 197]),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            "empty_ix" => Some([81, 238, 216, 99, 154, 78, 116, 173]),
             #[cfg(feature = "tulipv2")]
             "issue_shares" => Some([110, 72, 179, 47, 131, 109, 115, 103]),
             #[cfg(feature = "tulipv2")]
@@ -282,6 +284,8 @@ impl GlobalSighashDB {
             [198, 49, 192, 28, 9, 135, 3, 251] => Some("swap_to_repay_orca".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [30, 38, 34, 46, 211, 41, 152, 197] => Some("swap_to_repay_raydium".to_string()),
+            #[cfg(feature = "tulipv1-leverage-farm")]
+            [81, 238, 216, 99, 154, 78, 116, 173] => Some("empty_ix".to_string()),
             #[cfg(feature = "tulipv2")]
             [110, 72, 179, 47, 131, 109, 115, 103] => Some("issue_shares".to_string()),
             #[cfg(feature = "tulipv2")]
@@ -321,9 +325,13 @@ impl GlobalSighashDB {
             #[cfg(feature = "tulipv2")]
             [41, 244, 71, 189, 30, 118, 159, 171] => Some("permissioned_issue_shares".to_string()),
             #[cfg(feature = "tulipv2")]
-            [163, 100, 239, 127, 131, 120, 124, 51] => Some("rebase_lending_optimizer_vault".to_string()),
+            [163, 100, 239, 127, 131, 120, 124, 51] => {
+                Some("rebase_lending_optimizer_vault".to_string())
+            }
             #[cfg(feature = "tulipv2")]
-            [59, 209, 5, 234, 109, 4, 43, 143] => Some("rebase_multi_deposit_optimizer_vault".to_string()),
+            [59, 209, 5, 234, 109, 4, 43, 143] => {
+                Some("rebase_multi_deposit_optimizer_vault".to_string())
+            }
             _ => None,
         }
     }
