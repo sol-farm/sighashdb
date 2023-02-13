@@ -35,6 +35,7 @@ impl GlobalSighashDB {
             "sweep_deposit_queue" => Some([73, 69, 215, 228, 147, 128, 122, 185]),
             "deposit_aqua_farm" => Some([255, 36, 10, 1, 116, 246, 211, 64]),
             "deposit_double_dip" => Some([202, 175, 223, 211, 187, 171, 247, 82]),
+            "deposit_double_dip_without_increase" => Some([140, 55, 193, 2, 179, 135, 91, 155]),
             #[cfg(feature = "tulipv1-leverage-farm")]
             "swap_tokens_orca_stats" => Some([136, 45, 191, 123, 212, 101, 215, 6]),
             #[cfg(feature = "tulipv1-leverage-farm")]
@@ -184,6 +185,7 @@ impl GlobalSighashDB {
             [73, 69, 215, 228, 147, 128, 122, 185] => Some("sweep_deposit_queue".to_string()),
             [255, 36, 10, 1, 116, 246, 211, 64] => Some("deposit_aqua_farm".to_string()),
             [202, 175, 223, 211, 187, 171, 247, 82] => Some("deposit_double_dip".to_string()),
+            [140, 55, 193, 2, 179, 135, 91, 155] => Some("deposit_double_dip_without_increase".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
             [136, 45, 191, 123, 212, 101, 215, 6] => Some("swap_tokens_orca_stats".to_string()),
             #[cfg(feature = "tulipv1-leverage-farm")]
