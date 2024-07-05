@@ -2,6 +2,8 @@
 name = "sighashdb-cli"
 version = "0.1.2"
 edition = "2021"
+description = "cli tool for computing anchor instruction sighashes"
+license = "Apache / MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
