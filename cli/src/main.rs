@@ -32,6 +32,13 @@ fn main() {
             .takes_value(false)
             .required(false)
         )
+        .arg(
+            Arg::with_name("account")
+            .long("account")
+            .long_help("if enabled, use the account namespace")
+            .takes_value(false)
+            .required(false)
+        )
     ])
 ;
     let matches = app.get_matches();
@@ -57,12 +64,17 @@ fn main() {
             }
         }
         ("calculate", Some(calculate)) => {
-            let spacer = if calculate.is_present("v6") {
+            let spacer = if calculate.is_present("v6") && !calculate.is_present("account") {
                 "::"
             } else {
                 ":"
             };
-            let msg_to_hash = format!("global{}{}", spacer, calculate.value_of("input").unwrap());
+            let namespace = if calculate.is_present("account") {
+                "account"
+            } else {
+                "global"
+            };
+            let msg_to_hash = format!("{namespace}{spacer}{}", calculate.value_of("input").unwrap());
             {
                 use ring::digest::{Context, SHA256};
                 let mut context = Context::new(&SHA256);
